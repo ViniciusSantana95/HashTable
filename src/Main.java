@@ -5,14 +5,12 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
+        Hashtable<String, String> listaTelefonica = new Hashtable<String, String>();
         Scanner scan = new Scanner(System.in);
 
-        Hashtable<String, String> listaTelefonica = new Hashtable<String, String>();
-
         int opcao = 0;
-        String nome;
-        String telefone;
-        String nomePesquisa;
+        String nome ;
+        String telefone ;
 
         do{
             System.out.println("");
@@ -28,15 +26,18 @@ public class Main {
 
             switch(opcao) {
                 case 1:
-                    System.out.println("Informe o nome");
-                    nome = scan.next();
-                    System.out.println("Informe o telefone");
-                    telefone = scan.next();
+                    System.out.println("Informe o nome: ");
+                    scan.nextLine();
+                    nome = scan.nextLine();
+                    System.out.println("Informe o telefone: ");
+                    telefone = scan.nextLine();
+
                     listaTelefonica.put(nome, telefone);
                     break;
                 case 2:
                     System.out.println("Qual o nome do usuário que você deseja saber o número telefônico");
-                    nomePesquisa = scan.next();
+                    scan.nextLine();
+                    String nomePesquisa = scan.nextLine();
                     if(listaTelefonica.get(nomePesquisa) != null) {
                         System.out.println("O número telefônico é: " + listaTelefonica.get(nomePesquisa));
                     }else{
